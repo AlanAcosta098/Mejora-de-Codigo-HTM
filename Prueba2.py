@@ -16,46 +16,46 @@ def descargar_imagen(url, nombre_archivo):
         print("Ocurrió un error:", e)
     return False
 
-# Lista de URLs de libros
-urls_libros = [
-    # Lista de enlaces a los libros
-   "https://www.conaliteg.sep.gob.mx/2023/c/P1LPM/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P1MLA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P1PAA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P1PCA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P1PEA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P1SDA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P1TPA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P2PAA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P2PCA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P2PEA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P2SDA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P2MLA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P3LPM/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P3MLA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P3PAA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P3PCA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P3PEA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P3SDA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P4MLA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P4PAA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P4PCA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P4PEA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P4SDA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P0CMA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P0SHA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P5LPM/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P5MLA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P5PAA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P5PCA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P5PEA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P5SDA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P6MLA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P6PAA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P6PEA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P6PCA/",
-    "https://www.conaliteg.sep.gob.mx/2023/c/P6SDA/"
-]
+
+
+Grado_Primaria = int(input("Elige el grado de primaria: "))
+
+# Verifica si el número ingresado es válido
+if Grado_Primaria < 1 or Grado_Primaria > 6:
+    print("Número inválido. Debe ser del 1 al 6.")
+else:
+    # Pregunta al usuario qué libro quiere
+    print("¿Qué libro quieres?")
+    print("1. Un libro sin recetas")
+    print("2. Multiples lenguajes")
+    print("3. Libro de proyectos de Aula")
+    print("4. Libro de proyectos Comunitarios")
+    print("5. Libro de proyectos Escolares")
+    print("6. Nuestros Saberes")
+    print("7. Multiples lenguajes, Trazos y palabras")
+
+    opcion_libro = int(input("Selecciona una opción del 1 al 7: "))
+
+    # Asigna el valor correspondiente a la variable "Libro" según la opción elegida
+    if opcion_libro == 1:
+        Libro = "LPM"
+    elif opcion_libro == 2:
+        Libro = "MLA"
+    elif opcion_libro == 3:
+        Libro = "PAA"
+    elif opcion_libro == 4:
+        Libro = "PCA"
+    elif opcion_libro == 5:
+        Libro = "PEA"
+    elif opcion_libro == 6:
+        Libro = "SDA"
+    elif opcion_libro == 7:
+        Libro = "TPA"
+    else:
+        print("Opción inválida. Debe ser del 1 al 7.")
+
+elemento = f'P{Grado_Primaria}{Libro}'
+urls_libros = [f'https://www.conaliteg.sep.gob.mx/2023/c/{elemento}/']
 
 extension = ".jpg"
 
@@ -82,3 +82,4 @@ for base_url in urls_libros:
             break
 
         contador += 1 #incrementar contador para la siguiente imagen
+
